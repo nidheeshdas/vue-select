@@ -190,7 +190,7 @@
 							@keydown.up.prevent="typeAheadUp"
 							@keydown.down.prevent="typeAheadDown"
 							@keyup.enter.prevent="typeAheadSelect"
-							@blur="open = false"
+							@blur="onBlur"
 							@focus="open = true"
 							type="search"
 							class="form-control"
@@ -418,6 +418,10 @@
 		},
 
 		methods: {
+			onBlur () {
+				this.typeAheadSelect();
+				this.open = false;
+			},
 
 			/**
 			 * Select a given option.
