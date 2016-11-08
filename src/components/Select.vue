@@ -419,8 +419,13 @@
 
 		methods: {
 			onBlur () {
-				this.typeAheadSelect();
-				this.open = false;
+				var that = this;
+				setTimeout(function () {
+					if (!that.value) {
+						that.typeAheadSelect();
+						that.open = false;
+					}
+				}, 400);
 			},
 
 			/**
